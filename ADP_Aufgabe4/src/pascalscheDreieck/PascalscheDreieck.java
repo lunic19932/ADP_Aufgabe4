@@ -101,6 +101,7 @@ public class PascalscheDreieck {
 	public double fakultaet(int n){
 		double fak=1;
 		while(n>0){
+			
 			fak=fak*n;
 			n--;
 		}
@@ -161,6 +162,7 @@ public class PascalscheDreieck {
 		try {
 			FileOutputStream output = new FileOutputStream("ADP4_Aufwand.xls");
 			datei.write(output);
+			output.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
