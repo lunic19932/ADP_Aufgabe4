@@ -1,4 +1,4 @@
-package aufgabe5;
+package adp5;
 
 import static org.junit.Assert.*;
 
@@ -8,8 +8,40 @@ import java.util.Arrays;
 
 public class SortierenTest {
 
+	public Sortieren createArray() {
+		return new Sortieren();
+	}
+
+	@Test
+	public void test() throws Exception {
+		Sortieren liste = this.createArray();
+
+		try {
+			liste.insert(new Element<>((2), 1));
+			liste.insert(new Element<>((4), 2));
+		} catch (Exception e) {
+			fail("Exception");
+		}
+		assertEquals("Equals", 2, liste.getSize());
+	}
+
 	@Test
 	public void pivotRechts() throws Exception {
+		Sortieren liste = this.createArray();
+		try {
+			liste.insert(new Element<>((20), 5));
+			liste.insert(new Element<>((54), 10));
+			liste.insert(new Element<>((28), 7));
+			liste.insert(new Element<>((32), 8));
+			liste.insert(new Element<>((5), 2));
+			liste.insert(new Element<>((24), 6));
+			liste.insert(new Element<>((39), 9));
+			liste.insert(new Element<>((14), 3));
+			liste.insert(new Element<>((1), 1));
+			liste.insert(new Element<>((15), 4));
+		} catch (Exception e) {
+			fail("Exception");
+		}
 		Integer[] a = { 20, 54, 28, 32, 5, 24, 39, 14, 1, 15 };
 		Integer[] atest = { 1, 5, 14, 15, 20, 24, 28, 32, 39, 54 };
 		Sortieren sort = new Sortieren();
@@ -26,11 +58,17 @@ public class SortierenTest {
 		sort.quicksort(c, 0, c.length - 1, Pivotsuchverfahren.RECHTS);
 		assertTrue("Pivotrechts Fehler", Arrays.equals(c, ctest));
 
+		Integer[] test = { 2, 1, 4, 3 };
+		Integer[] testtest = { 1, 2, 3, 4 };
+		Sortieren sortTest = new Sortieren();
+		sortTest.quicksort(test, 0, test.length - 1, Pivotsuchverfahren.RECHTS);
+		assertTrue("Pivotrechts Fehler", Arrays.equals(test, testtest));
+
 	}
 
 	@Test
 	public void pivotMedian() throws Exception {
-		Integer[] a = { 20, 54, 28, 31, 5, 24, 39, 14, 1, 15 };
+		Integer[] a = { 20, 54, 39, 31, 5, 24, 28, 14, 1, 15 };
 		Integer[] atest = { 1, 5, 14, 15, 20, 24, 28, 31, 39, 54 };
 		Sortieren sort = new Sortieren();
 		sort.quicksort(a, 0, a.length - 1, Pivotsuchverfahren.MEDIAN);

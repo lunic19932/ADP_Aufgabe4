@@ -1,7 +1,17 @@
-package aufgabe5;
+package adp5;
+
+/**
+ * 
+ * Die Klasse steht für die Auswahl der Suchverfahren
+ * 
+ * @author Jannes
+ *
+ */
 
 public enum Pivotsuchverfahren {
-	
-	RECHTS, MEDIAN, ZUFAELLIG
 
+	/**
+	 * Enum für die verschiedenen Suchverfahren
+	 */
+	RECHTS, MEDIAN, ZUFAELLIG
 }
